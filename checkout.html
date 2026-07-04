@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+    
+</head>
+
+
+<h2>quantity selector</h2>
+<body align="center" bgcolor="beige">
+
+   <label for="qty">select qty</label>
+   <select >
+    <option onclick="alert()">0</option>
+    <option onclick="alert()">1</option>
+    <option onclick="alert()">2</option>
+    <option onclick="alert()">3</option>
+   </select>
+   <button onclick="alert1()">proceed</button>
+
+
+    <script>
+        function alert1(){
+        alert("items selected to place order,go to myorders");
+        validate_qty()
+        }
+    
+         function validate_qty(){
+        let qty=document.getElementById("qty").value;
+        if(qty<0){
+            alert("quantity must be greater than zero");
+            return
+        }
+        }
+    </script>
+    
+</body>
+</html>

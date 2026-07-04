@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myorders</title>
+</head>
+<body align="center" bgcolor="beige">
+    <h1>My Orders & Invoices</h1>
+    <table align="center" border="1">
+     <theader>
+        <th>ordered items</th>
+        <th>prices</th>
+         <th>status</th>
+     </theader>
+     <tbody id="table">
+        <tr>
+        <td>Astia</td>
+        <td>400</td>
+        <td>shipping done</td>
+        </tr>
+        <tr>
+        <td>Byria</td>
+        <td>400</td>
+        <td>out for delivery</td>
+        </tr>
+
+     </tbody>
+    </table>
+    <H2 id="total">total bill: 800</H2>
+</body>
+
+<script>
+
+   let items=document.getElementById("order").value;
+  
+   let status=document.getElementById("status").value;
+  
+   let totalbill=document.getElementById("total").value;
+
+
+  let a=document.createElement("tr");
+  let b=document.createElement("td");
+  b.innerText="Asyia";
+  a.appendChild(b);
+  document.getElementById("table").appendChild(a)
+
+  let prices=400;
+  let qty=2;
+
+  
+
+    totalbill.innerHTML=prices*qty
+
+   
+
+
+
+</script>
+</html>
+

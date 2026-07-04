@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <style>
+        div{
+            background-color:cadetblue;
+        }
+    </style>
+</head>
+<body align="center" bgcolor="beige">
+    <div>
+    <h1 align="center" bgcolor="cadetblue">CONTACT & EMERGENCY SUPPORT</h1>
+     </div>
+     <h3>Convey your message</h3>
+    <textarea rows="4",cols="3" ,id="msg", placeholder="enter ur message here....">
+
+    </textarea><br><br><br><br>
+
+
+    <label for="urgency">Urgency level(0-5)</label>
+<select id="urgency">
+    <option>1</option>
+      <option>2</option>
+        <option>3</option>
+          <option>4</option>
+            <option>5</option>
+</select><br><br><br><br>
+
+    <h3>enter you contact details:</h3>
+    <textarea id="details", placeholder="enter your contact details..">
+
+    </textarea>
+
+    <script>
+function validateformsg(){
+    let msg=document.getElementById("msg").value;
+    if(msg.length>30){
+        alert("limit is upto 30 character only")
+    }
+}
+
+function validatefordrop(){
+    let drop=document.getElementById("urgency").value;
+    if(drop=="null")
+    alert("this field is madatory");
+    return;
+
+}
+    </script>
+
+
+</body>
+</html>

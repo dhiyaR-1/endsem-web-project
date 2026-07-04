@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            h1{
+                background-color: cadetblue;
+                display: flex;
+                justify-content: center;
+                height: 60px;
+                gap: 40px;
+                margin:40px
+            }
+            #box1{
+                display: flex;
+                justify-content: center;
+                background-color: beige;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-left: 20ch;
+                margin-right: 20ch;
+                box-shadow: 0 0 70px;
+            }
+
+            #box2{
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-left: 20ch;
+                margin-right: 20ch;
+                
+            }
+
+            td{
+                text-align: center;
+            }
+            th{
+                padding: 5px;
+                text-align: center;
+            }
+            footer{
+                display: flex;
+                justify-content: center;
+                padding-top: 10%;
+            }
+        </style>
+    </head>
+</html>
+<body>
+    <body>
+        
+            <h1>MEDICINE CATALOGUE</h1>
+        <div id="box1">
+        <table>
+            <tr>
+                <th id="t1"> Medicine </th>
+                <th > Availabilty </th>
+                <th >Add To Cart</th>
+            </tr>
+            <tr>
+                <td  id="t2">Astia</td>
+                <td>26</td>
+                <td id="m1" ><button type="button:" onclick="dynamic()">Add</button></td>
+            </tr>
+            <tr >
+                <td id="t3">Byria</td>
+                <td>43</td>
+                <td id="m2" ><button type="button:" onclick="return dynamic1()">Add</button></td>
+            </tr>
+            <tr >
+                <td id="t4">Cydia</td>
+                <td>31</td>
+                <td id="m3" ><button type="button:" onclick="return dynamic2()">Add</button></td>
+            </tr>
+            <tr>
+                <td id="t5">Firia</td>
+                <td>27</td>
+                <td id="m4" ><button type="button:" onclick="return dynamic3()">Add</button></td>
+            </tr>
+            <tr>
+                <td id="t6">Rustia</td>
+                <td>29</td>
+                <td id="m1" ><button type="button:" onclick="return dynamic4()">Add</button></td>
+            </tr>
+        </table></div>
+        <div id="box2">
+        <h2> My Cart </h2>
+        <ul id="t0"> </ul>
+        <ul id="t10"> </ul>
+        <ul id="t20"> </ul>
+        <ul id="t30"> </ul>
+        <ul id="t40"> </ul></div>
+        <footer>
+        <button type="button" onclick="window.location.href='checkout.html'">PROCEED</button></footer>
+    <script>
+        function dynamic() {
+            
+         let b= document.getElementById("t2").innerHTML;
+         let a=document.createElement("li");
+            a.innerText=b;
+            document.getElementById("t0").appendChild(a)
+            
+        }  
+
+        function dynamic1() {
+        let c= document.getElementById("t3").innerHTML;
+        let d=document.createElement("li");
+               d.innerText=c;
+               document.getElementById("t10").appendChild(d)
+              
+        }    
+        function dynamic2() {
+        let e= document.getElementById("t4").innerHTML;
+        let f=document.createElement("li");
+                  f.innerText=e;
+                  document.getElementById("t20").appendChild(f)
+        }
+        function dynamic3() {
+            let e= document.getElementById("t5").innerHTML;
+            let f=document.createElement("li");
+                      f.innerText=e;
+                      document.getElementById("t30").appendChild(f)
+            }
+            function dynamic4() {
+                let e= document.getElementById("t6").innerHTML;
+                let f=document.createElement("li");
+                          f.innerText=e;
+                          document.getElementById("t40").appendChild(f)
+                }
+                 
+
+        
+        let arr=JSON.parse(localStorage.getItem("this cart"),stringify(arr))
+        function Add() {
+           let a=document.getElementById("t2").innerHTML;
+           arr.push(a);
+          
+           alert("data saved");
+        }
+    </script>
+
+</body>
