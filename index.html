@@ -1,98 +1,92 @@
 <!doctype html>
 <html>
-    <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy</title>
 
-        <title> pharmacy</title>
-        <style> 
-            body {
-                display:flex;
-                flex-direction: column;
-                background-color: beige;
-                padding:10ch;
-                height:100ch;
-                border-bottom:0;
-                margin-bottom:0;   
-            }
-            header {
-                display:flex;
-                justify-content:space-between;
-                align-items: center;
-                background-color: cadetblue;
-                padding: 10px 20px;
-           }
-           h1 {
-            font-size: 50px;
-            flex:1;
-        }
-        div p {
-            text-align: center;
-            font-size: 30px;
-            flex:1;
-            flex-direction: column;
-        }
-        .navbuttons button:hover {
-            opacity:0.7;
-            }
-            .nav1 button:hover {
-                display:flex;
-                flex-direction: column;
-                 justify-content:center;
-                 align-items: center;
-                 flex:1;               
-            }
-        footer {
+    <style>
+        body {
             display:flex;
-             justify-content:space-between;
-             align-items:center;
-             background-color: cadetblue;
+            flex-direction: column;
+            background-color: beige;
+            margin:0;
         }
 
         #parent{
-            box-shadow: 0 0 70px;
-            border:5cap;
-            border-radius:6px;
+            box-shadow: 0 0 20px;
+            margin: 20px;
         }
 
-        button{
+        header {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background-color: cadetblue;
+            padding: 10px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        nav button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            opacity: 0.7;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background-color: cadetblue;
             padding: 10px;
         }
+    </style>
+</head>
 
-         
-           
-        </style>
-    </head>
-    <body>
-        <div id="parent">
-           
-        <header>
-            <h1 style="text-align: left;"> Pharmacy</h1>
-            <nav class="navbuttons">
-                <button onclick="window.location.href='account.html'">SignUp </button>
-                <button onclick="window.location.href='pharmacydupe.html'">Wellness</button>
-                <button onclick="window.location.href='orders.html'"> </a> My Orders</button>
-            </nav>
-        </header>
-        <div> 
-            <h1 style="text-align: center;"> Welcome User</h1>
-        <p> We would love to provide you the best experience on purchasing medicines and notify you on any login
-            or just visit the offline store to be better informed, also you can register in the website to know about the availability anytime, anywhere.
-            We would love to provide you the best experience on purchasing medicines and notify you on any login
-            or just visit the offline store to be better informed, also you can register in the website to know about the availability anytime, anywhere.
-            We would love to provide you the best experience on purchasing medicines and notify you on any login
-            or just visit the offline store to be better informed, also you can register in the website to know about the availability anytime, anywhere.
-        </p>
+<body>
 
-        </div>
-        
-        <footer>
-            <p> Contact:9857603</p>
-            <button type="button" onclick="window.location.href='support.html'">Contact Us</button>
-            <p> E-mail:pharmacy@gmail.com</p>
-            
-        </footer>
-        
-    </body>
+<div id="parent">
+
+<header>
+    <h1>Pharmacy</h1>
+
+    <nav>
+        <button onclick="window.location.href='account.html'">Sign Up</button>
+        <button onclick="window.location.href='pharmacydupe.html'">Wellness</button>
+        <button onclick="window.location.href='orders.html'">My Orders</button>
+    </nav>
+</header>
+
+<div class="content">
+    <h1>Welcome User</h1>
+
+    <p>
+        We provide the best experience for purchasing medicines online.
+        You can browse products, add items to cart, and track your orders anytime.
+    </p>
 </div>
+
+<footer>
+    <p>Contact: 9857603</p>
+
+    <button onclick="window.location.href='support.html'">Contact Us</button>
+
+    <p>Email: pharmacy@gmail.com</p>
+</footer>
+
+</div>
+
+</body>
 </html>
