@@ -1,99 +1,98 @@
-
 <!doctype html>
 <html>
-    <head>
-        <title> pharmacy</title>
-        <style>
-            body {
-                
-                    display:flex;
-                    flex-direction: column;
-                    background-color: beige;
-                    width:100%;
-                    height:100ch;
-                    border-bottom:0;
-                margin-bottom:0;             
-            }
-            header {
-                display:flex;
-                justify-content:space-between;
-                align-items: center;
-                background-color: cadetblue;
-                padding: 10px 20px;
-           }
-           
-            form {
-                padding-top: 10cap;
-                display:flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                box-shadow: 5ch;
-                padding-bottom: 10cap;
-            }
-            h1{
-                text-align: center;
-                font-size: 50px;
-                flex:1;
-                flex-direction: column;
-                align-items: center;
-            }
+<head>
+    <title>Pharmacy - Sign Up</title>
 
-            #parent{
-                margin-left: 40ch;
-                margin-right: 40ch;
-                box-shadow: 0 0 70px;
-            }
+    <style>
+        body {
+            display:flex;
+            flex-direction: column;
+            background-color: beige;
+            margin:0;
+            height:100vh;
+        }
 
-            button:hover{
-                opacity: 0.7px;
-            }
+        header {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color: cadetblue;
+            padding: 10px;
+        }
 
-            footer{
-                    height: 10ch;
-                    display:flex;
-                     justify-content:space-between;
-                     align-items:center;
-                     background-color: cadetblue;
-                     display:flex;
-                flex-direction: column;
-            }
+        #parent{
+            margin: 40px auto;
+            width: 50%;
+            box-shadow: 0 0 20px;
+            background: white;
+        }
 
-        </style>
-    </head>
-    <body>
-        <div id="parent">
-        <header> <h1> Sign Up</h1> </header> 
-        <form onsubmit="Validate()"> 
-            Name:<input type="text" id="t1" placeholder="Enter Name">
-            <br>
-            Mobile No: <input type="text" id="t2" placeholder="Enter Valid Phone Number">
-            <br>
-            Address:<input type="email" id="t3" placeholder="Enter Address">
-            <br>
-            Blood Grp:<input type="text" is="t4" placeholder="Enter Blood Group">
-            <br>
-            <input type="submit">
-        </form>
-        <footer>
-        </footer>
-        <script>
-            function Validate() {
-                let a=document.getElementById("t2").value;
-                let b=document.getElementById("t3").value;
-                if(a.length<10) {
-                    alert("not a valid phone number");
-                    
-                }
-                if(!(b.includes("@"))) {
-                    alert("not valid");
-                }
-                else{
-                    alert("done!")
-                }
-            }
+        form {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 30px;
+        }
 
-        </script>
-    </div>
-    </body>
+        h1{
+            margin:0;
+        }
+
+        input{
+            padding:5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="parent">
+
+<header>
+    <h1>Sign Up</h1>
+</header>
+
+<form onsubmit="return validateForm(event)">
+    Name:
+    <input type="text" id="t1" placeholder="Enter Name">
+
+    Mobile No:
+    <input type="text" id="t2" placeholder="Enter Valid Phone Number">
+
+    Address:
+    <input type="email" id="t3" placeholder="Enter Address">
+
+    Blood Group:
+    <input type="text" id="t4" placeholder="Enter Blood Group">
+
+    <input type="submit">
+</form>
+
+</div>
+
+<script>
+function validateForm(event) {
+    event.preventDefault(); 
+
+    let phone = document.getElementById("t2").value;
+    let email = document.getElementById("t3").value;
+
+    if (phone.length < 10) {
+        alert("Not a valid phone number");
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        alert("Not a valid email/address");
+        return false;
+    }
+
+    alert("Signup successful!");
+    window.location.href = "index.html";
+    return true;
+}
+</script>
+
+</body>
 </html>
