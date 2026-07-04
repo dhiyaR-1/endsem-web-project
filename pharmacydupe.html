@@ -6,25 +6,20 @@
     <style>
         h1{
             background-color: cadetblue;
-            display: flex;
-            justify-content: center;
-            height: 60px;
-            align-items: center;
-            margin: 40px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:60px;
+            margin:40px;
         }
 
         #box1{
-            display: flex;
-            justify-content: center;
+            display:flex;
+            justify-content:center;
             background-color: beige;
-            padding: 20px;
-            margin: 20px;
-            box-shadow: 0 0 20px;
-        }
-
-        #box2{
-            margin: 20px;
-            padding: 20px;
+            padding:20px;
+            margin:20px;
+            box-shadow:0 0 20px;
         }
 
         table{
@@ -32,20 +27,18 @@
         }
 
         th, td{
-            text-align: center;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        footer{
-            display: flex;
-            justify-content: center;
-            padding: 20px;
+            text-align:center;
+            padding:10px;
+            border-bottom:1px solid #ccc;
         }
 
         button{
-            padding: 5px 10px;
-            cursor: pointer;
+            padding:5px 10px;
+            cursor:pointer;
+        }
+
+        #box2{
+            margin:20px;
         }
     </style>
 </head>
@@ -55,43 +48,45 @@
 <h1>MEDICINE CATALOGUE</h1>
 
 <div id="box1">
-    <table>
-        <tr>
-            <th>Medicine</th>
-            <th>Availability</th>
-            <th>Add To Cart</th>
-        </tr>
+<table>
 
-        <tr>
-            <td>Astia</td>
-            <td>26</td>
-            <td><button onclick="addToCart('Astia')">Add</button></td>
-        </tr>
+<tr>
+    <th>Medicine</th>
+    <th>Price</th>
+    <th>Add</th>
+</tr>
 
-        <tr>
-            <td>Byria</td>
-            <td>43</td>
-            <td><button onclick="addToCart('Byria')">Add</button></td>
-        </tr>
+<tr>
+    <td>Astia</td>
+    <td>400</td>
+    <td><button onclick="addToCart('Astia',400)">Add</button></td>
+</tr>
 
-        <tr>
-            <td>Cydia</td>
-            <td>31</td>
-            <td><button onclick="addToCart('Cydia')">Add</button></td>
-        </tr>
+<tr>
+    <td>Byria</td>
+    <td>400</td>
+    <td><button onclick="addToCart('Byria',400)">Add</button></td>
+</tr>
 
-        <tr>
-            <td>Firia</td>
-            <td>27</td>
-            <td><button onclick="addToCart('Firia')">Add</button></td>
-        </tr>
+<tr>
+    <td>Cydia</td>
+    <td>500</td>
+    <td><button onclick="addToCart('Cydia',500)">Add</button></td>
+</tr>
 
-        <tr>
-            <td>Rustia</td>
-            <td>29</td>
-            <td><button onclick="addToCart('Rustia')">Add</button></td>
-        </tr>
-    </table>
+<tr>
+    <td>Firia</td>
+    <td>300</td>
+    <td><button onclick="addToCart('Firia',300)">Add</button></td>
+</tr>
+
+<tr>
+    <td>Rustia</td>
+    <td>350</td>
+    <td><button onclick="addToCart('Rustia',350)">Add</button></td>
+</tr>
+
+</table>
 </div>
 
 <div id="box2">
@@ -99,34 +94,35 @@
     <ul id="cart"></ul>
 </div>
 
-<footer>
+<footer align="center">
     <button onclick="window.location.href='checkout.html'">PROCEED</button>
 </footer>
 
 <script>
-   
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    function renderCart() {
-        let cartList = document.getElementById("cart");
-        cartList.innerHTML = "";
+function renderCart() {
+    let list = document.getElementById("cart");
+    list.innerHTML = "";
 
-        cart.forEach(item => {
-            let li = document.createElement("li");
-            li.innerText = item;
-            cartList.appendChild(li);
-        });
-    }
+    cart.forEach(item => {
+        let li = document.createElement("li");
+        li.innerText = item.name + " - " + item.price;
+        list.appendChild(li);
+    });
+}
 
-    function addToCart(item) {
-        cart.push(item);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        renderCart();
-        alert(item + " added to cart");
-    }
+function addToCart(name, price) {
+    cart.push({ name, price });
 
-    
+    localStorage.setItem("cart", JSON.stringify(cart));
+
     renderCart();
+
+    alert(name + " added to cart");
+}
+
+renderCart();
 </script>
 
 </body>
