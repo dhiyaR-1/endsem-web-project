@@ -2,55 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact</title>
+    <title>Contact Support</title>
+
     <style>
+        body{
+            background-color: beige;
+            text-align:center;
+        }
+
         div{
-            background-color:cadetblue;
+            background-color: cadetblue;
+            padding:10px;
+        }
+
+        textarea, select{
+            margin:10px;
+            padding:5px;
+        }
+
+        button{
+            padding:10px;
+            cursor:pointer;
         }
     </style>
 </head>
-<body align="center" bgcolor="beige">
-    <div>
-    <h1 align="center" bgcolor="cadetblue">CONTACT & EMERGENCY SUPPORT</h1>
-     </div>
-     <h3>Convey your message</h3>
-    <textarea rows="4",cols="3" ,id="msg", placeholder="enter ur message here....">
 
-    </textarea><br><br><br><br>
+<body>
 
+<div>
+    <h1>CONTACT & EMERGENCY SUPPORT</h1>
+</div>
 
-    <label for="urgency">Urgency level(0-5)</label>
+<h3>Convey your message</h3>
+
+<textarea id="msg" rows="4" cols="40" placeholder="Enter your message here..."></textarea>
+
+<br><br>
+
+<label>Urgency level (1-5)</label>
+<br>
+
 <select id="urgency">
-    <option>1</option>
-      <option>2</option>
-        <option>3</option>
-          <option>4</option>
-            <option>5</option>
-</select><br><br><br><br>
+    <option value="">Select</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
 
-    <h3>enter you contact details:</h3>
-    <textarea id="details", placeholder="enter your contact details..">
+<br><br>
 
-    </textarea>
+<h3>Enter your contact details</h3>
 
-    <script>
-function validateformsg(){
-    let msg=document.getElementById("msg").value;
-    if(msg.length>30){
-        alert("limit is upto 30 character only")
+<textarea id="details" rows="3" cols="40" placeholder="Enter your contact details..."></textarea>
+
+<br><br>
+
+<button onclick="submitForm()">Submit</button>
+
+<script>
+function submitForm() {
+    let msg = document.getElementById("msg").value;
+    let urgency = document.getElementById("urgency").value;
+    let details = document.getElementById("details").value;
+
+    if (msg.length === 0) {
+        alert("Message cannot be empty");
+        return;
     }
+
+    if (msg.length > 30) {
+        alert("Limit is 30 characters only");
+        return;
+    }
+
+    if (urgency === "") {
+        alert("Please select urgency level");
+        return;
+    }
+
+    if (details.length === 0) {
+        alert("Please enter contact details");
+        return;
+    }
+
+    alert("Message submitted successfully!");
 }
-
-function validatefordrop(){
-    let drop=document.getElementById("urgency").value;
-    if(drop=="null")
-    alert("this field is madatory");
-    return;
-
-}
-    </script>
-
+</script>
 
 </body>
 </html>
