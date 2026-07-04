@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myorders</title>
+    <title>My Orders</title>
 </head>
-<body align="center" bgcolor="beige">
-    <h1>My Orders & Invoices</h1>
-    <table align="center" border="1">
-     <theader>
-        <th>ordered items</th>
-        <th>prices</th>
-         <th>status</th>
-     </theader>
-     <tbody id="table">
-        <tr>
-        <td>Astia</td>
-        <td>400</td>
-        <td>shipping done</td>
-        </tr>
-        <tr>
-        <td>Byria</td>
-        <td>400</td>
-        <td>out for delivery</td>
-        </tr>
 
-     </tbody>
-    </table>
-    <H2 id="total">total bill: 800</H2>
-</body>
+<body align="center" bgcolor="beige">
+
+<h1>My Orders & Invoices</h1>
+
+<table border="1" align="center">
+    <thead>
+        <tr>
+            <th>Ordered Items</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody id="table"></tbody>
+</table>
+
+<h2 id="total"></h2>
 
 <script>
+    // get cart from index page
+    let orders = JSON.parse(localStorage.getItem("cart")) || [];
 
-   let items=document.getElementById("order").value;
-  
-   let status=document.getElementById("status").value;
-  
-   let totalbill=document.getElementById("total").value;
+    let table = document.getElementById("table");
+    let total = 0;
 
+    if (orders.length === 0) {
+        table.innerHTML = "<tr><td colspan='3'>No orders found</td></tr>";
+    } else {
+        orders.forEach(item => {
 
-  let a=document.createElement("tr");
-  let b=document.createElement("td");
-  b.innerText="Asyia";
-  a.appendChild(b);
-  document.getElementById("table").appendChild(a)
+            let row = document.createElement("tr");
 
-  let prices=400;
-  let qty=2;
+            let td1 = document.createElement("td");
+            td1.innerText = item.name;
 
-  
+            let td2 = document.createElement("td");
+            td2.innerText = item.price;
 
-    totalbill.innerHTML=prices*qty
+            let td3 = document.createElement("td");
+            td3.innerText = "Processing";
 
-   
+            total += item.price;
 
+            row.appendChild(td1);
+            row.appendChild(td2);
+            row.appendChild(td3);
 
+            table.appendChild(row);
+        });
+    }
 
+    document.getElementById("total").innerText =
+        "Total Bill: " + total;
 </script>
-</html>
 
+</body>
+</html>
