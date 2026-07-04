@@ -2,39 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>checkout</title>
-    
+    <title>Checkout</title>
 </head>
 
-
-<h2>quantity selector</h2>
 <body align="center" bgcolor="beige">
 
-   <label for="qty">select qty</label>
-   <select >
-    <option onclick="alert()">0</option>
-    <option onclick="alert()">1</option>
-    <option onclick="alert()">2</option>
-    <option onclick="alert()">3</option>
-   </select>
-   <button onclick="alert1()">proceed</button>
+<h2>Quantity Selector</h2>
 
+<label>Select Qty:</label>
 
-    <script>
-        function alert1(){
-        alert("items selected to place order,go to myorders");
-        validate_qty()
-        }
-    
-         function validate_qty(){
-        let qty=document.getElementById("qty").value;
-        if(qty<0){
-            alert("quantity must be greater than zero");
-            return
-        }
-        }
-    </script>
-    
+<select id="qty">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<br><br>
+
+<button onclick="proceed()">Proceed</button>
+
+<script>
+function proceed() {
+    let qty = Number(document.getElementById("qty").value);
+
+    if (qty <= 0) {
+        alert("Quantity must be greater than zero");
+        return;
+    }
+
+    alert("Items selected. Placing order...");
+
+    localStorage.setItem("qty", qty);
+
+    window.location.href = "orders.html";
+}
+</script>
+
 </body>
 </html>
